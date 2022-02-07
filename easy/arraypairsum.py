@@ -14,7 +14,7 @@ from nose.tools import assert_equal
 from distutils.log import error
 
 
-def array_pair_sum(arr, k):
+def array_pair_sum(arr, k):  # O(n)
     # Ensure there are at least a pair in the array/list
     if len(arr) < 2:
         return error
