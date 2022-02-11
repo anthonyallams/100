@@ -33,6 +33,7 @@ def largest_cont_sum1(arr):  # O(n)
     return max_sum
 
 
+# Test class function
 class TestLargestContinuousSum(object):
     def test(self, solution):
         assert_equal(solution([1, 2, -1, 3, 4, -1]), 9)
