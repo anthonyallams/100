@@ -13,14 +13,14 @@ Output: false
 
 #SOLUTION 1: Using hashmap to make counter for both string
 #O(N) TIME COMPLEXITY AND O(N) SPACE COMPLEXITY
-def isAnagram(s,t):
+def isAnagram1(s,t):
     counts, countt = {},{}
     if len(s) != len(t):
         return False
     
     for i in range(len(s)):
         counts[s[i]] = 1 + counts.get(s[i], 0)
-        countt[t[i]] = 1 + countt.get(s[i], 0)
+        countt[t[i]] = 1 + countt.get(t[i], 0)
     
     for c in counts:
         if counts[c] != countt.get(c, 0):
@@ -29,7 +29,7 @@ def isAnagram(s,t):
 
 #SOLUTION 2: Using python sorted
 #O(N LOG N) TIME COMPLEXITY AND O(N) SPACE COMPLEXITY
-def isAnagram(s,t):
+def isAnagram2(s,t):
     if len(s) != len(t):
         return False
     
@@ -38,5 +38,5 @@ def isAnagram(s,t):
 #SOLUTION 3: Using collections.Counter method
 #O(N) TIME COMPLEXITY AND O(N) SPACE COMPLEXITY
 from collections import Counter
-def isAnagram(s,t):
+def isAnagram3(s,t):
     return Counter(s) == Counter(t)

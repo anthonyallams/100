@@ -1,5 +1,5 @@
 import pytest
-from easy.anagram import isAnagram1, isAnagram2, isAnagram3
+from easy.valid_anagram import isAnagram1, isAnagram2, isAnagram3
 
 def test_anagram_true():
     s,t = "anagram","nagaram"
