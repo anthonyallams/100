@@ -12,7 +12,6 @@ anagrams('Helllo there@t','There Helllo!@##$$%%.') ==> True
 
 # SOLUTION 1: Sorting and Comparing the characters in sorted string
 # Import regular expressions and test module
-from nose.tools import assert_equal
 import re
 
 
@@ -74,19 +73,4 @@ def anagrams2(str1, str2):  # O(n)
             return False
     return True
 
-
-# Test class function
-class AnagramTest(object):
-    def test(self, solution):
-        assert_equal(solution('RAIL! SAFETY!', 'fairy tales'), True)
-        assert_equal(solution('Hi there', 'Bye there'), False)
-        assert_equal(solution('rail safety', 'fairy tales'), True)
-        assert_equal(solution('Helllo there@', 'There Helllo!@##$$%%.'), True)
-        assert_equal(solution('Helllo there@t',
-                              'There Helllo!@##$$%%.'), False)
-        print('All Test Cases Passed')
-# anagrams1('Helllo there@', 'There Helllo!@##$$%%.')
-
-
-t = AnagramTest()
-t.test(anagrams2)
+anagrams1('Helllo there@', 'There Helllo!@##$$%%.')
