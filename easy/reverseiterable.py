@@ -13,9 +13,6 @@ reverse({1:'apple', 2:'orange', 3:'banana', 4:'mango'})=>
 '''
 
 
-from nose.tools import assert_equal
-
-
 def reverse_iterable(input):  # O(n)
     # Check if input is a dict and reverse
     # Check if input is a str, tuple, set or list and reverse it
@@ -30,19 +27,3 @@ def reverse_iterable(input):  # O(n)
     except TypeError:
         print(f'{input} is not an iterable. Try again')
 
-
-# Test class function
-class TestReverseIterable(object):
-
-    def test(self, solution):
-        assert_equal(solution('solution'), 'noitulos')
-        assert_equal(solution([1, 2, 3, 4]), [4, 3, 2, 1])
-        assert_equal(solution((1, 2, 3, 4)), (4, 3, 2, 1))
-        assert_equal(solution({1: 'apple', 2: 'orange', 3: 'banana', 4: 'mango'}), {
-                     'apple': 1, 'banana': 3, 'mango': 4, 'orange': 2})
-        print('All test cases passed')
-
-
-# Run tests
-t = TestReverseIterable()
-t.test(reverse_iterable)
