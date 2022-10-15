@@ -9,10 +9,8 @@ reverse_sentence('  space here') =>'here space'
 reverse_sentence('right hand space      ') =>'here space'
 reverse_sentence('Hello Sir,  what can I get you? ') =>'here space'
 '''
-from nose.tools import assert_equal
 
 # SOLUTION 1: Using simple python methods to split and reverse
-
 
 def reverse_sentence1(sen):
     # Check if the length of sentence is greater than 1
@@ -62,20 +60,3 @@ def reverse_sentence3(sen):
         i += 1
     return ' '.join(reversed(words))
 
-    # Test class function
-
-
-class TestReverseSentence(object):
-
-    def test(self, solution):
-        assert_equal(solution('This is the best'), 'best the is This')
-        assert_equal(solution('Hello Sir,  what can I get you? '),
-                     'you? get I can what Sir, Hello')
-        assert_equal(solution('right hand space      '), 'space hand right')
-        assert_equal(solution('    left hand space'), 'space hand left')
-        print('All test cases passed')
-
-
-# Run tests
-t = TestReverseSentence()
-t.test(reverse_sentence3)

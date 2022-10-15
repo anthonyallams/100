@@ -17,7 +17,6 @@ prime_factors(1318) =>[2,659]
 
 
 # SOLUTION 1: Brute force approach: For loop
-from nose.tools import assert_equal
 import math
 
 
@@ -80,19 +79,3 @@ def prime_factors3(num):
         prime_factors.append(num)
     return prime_factors
 
-
-class TestPrimeFactors(object):
-
-    def test(self, solution):
-        assert_equal(solution(17), [17])
-        assert_equal(solution(48), [2, 2, 2, 2, 3])
-        assert_equal(solution(84), [2, 2, 3, 7])
-        assert_equal(solution(147), [3, 7, 7])
-        assert_equal(solution(330), [2, 3, 5, 11])
-        assert_equal(solution(1318), [2, 659])
-        print('All test cases passed')
-
-
-# Run tests
-t = TestPrimeFactors()
-t.test(prime_factors3)
