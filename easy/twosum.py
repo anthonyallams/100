@@ -47,6 +47,7 @@ def twoSum3(nums, target):
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 """
 #Using hashmap
+#O(N) TIME AND O(N) SPACE 
 def twoSum4(nums, target):
     sums = {}
     for idx, num in enumerate(nums):
