@@ -22,4 +22,20 @@ def isPalindrome2(nums):
         right -= 1
     return True
 
+#SOLUTION 3: Using integer operations
+#O(N) TIME AND O(1) SPACE
+def isPalindrome3(nums):
+    if nums < 0 or (nums > 0 and nums % 10 == 0):
+        return False
+    div = 1
+    while nums >= 10 * div:
+        div *= 10
+    while nums:
+        right = nums % 10
+        left = nums // div
+        if left != right:
+            return False
+        nums = (nums % div)//10
+        div //= 100
+    return True
 
