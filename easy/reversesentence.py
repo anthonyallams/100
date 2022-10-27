@@ -10,53 +10,52 @@ reverse_sentence('right hand space      ') =>'here space'
 reverse_sentence('Hello Sir,  what can I get you? ') =>'here space'
 '''
 
-# SOLUTION 1: Using simple python methods to split and reverse
-
-def reverse_sentence1(sen):
-    # Check if the length of sentence is greater than 1
-    if len(sen) <= 1:
-        return sen
-
-    # Split, reverse and join back the sentence words with space
-    return ' '.join(reversed(sen.split()))
-
-
-# SOLUTION 2: Using simple python array split, slice and reverse
-def reverse_sentence2(sen):
-    # Check if the length of sentence is greater than 1
-    if len(sen) <= 1:
-        return sen
-
-    # Splice and reverse and join words back together
-    return ' '.join(sen.split()[::-1])
-
-
-# SOLUTION 3: Manually splitting the characters and words using a while loop
-def reverse_sentence3(sen):
-    # Check if the length of sentence is greater than 1
-    if len(sen) <= 1:
-        return sen
-
-    # Initialize words array for storing the words, length and spaces
+# SOLUTION 1: Splitting words into a list and reversing them
+#O(N) TIME AND O(N) SPACE
+def reverse1(sen):
+    startOfword = 0
     words = []
-    spaces = [' ']
-    length = len(sen)
 
-    # Tracker for indexing characters and words in the sentence
-    i = 0
+    for idx in range(len(sen)):
+        char = sen[idx]
 
-    # Loop through the entire sentences if tracker is less than sentence length
-    while i < length:
-        # If character is not a space
-        if sen[i] not in spaces:
-            # Beginning of a word in the sentence
-            word_start = i
-            # Loop through the individual words in the sentence if not space
-            while i < length and sen[i] not in spaces:
-                # Get tracker of word ending
-                i += 1
-            # Add words to the words array
-            words.append(sen[word_start:i])
-        i += 1
-    return ' '.join(reversed(words))
+        if char == " ":
+            words.append(sen[startOfword:idx])
+            startOfword = idx
+        elif sen[startOfword] == " ":
+            words.append(" ")
+            startOfword = idx
+    words.append(sen[startOfword:])
+    reversed_words = reverseList(words)
+    return "".join(reversed_words)
 
+
+def reverseList(list):
+    left, right = 0, len(list)-1
+    while left <= right:
+        list[left],list[right] = list[right], list[left]
+        left, right = left + 1, right - 1
+    return list
+
+#SOLUTION 2: Reverse the entire sentence and then reverse the individual words in the sentence list
+#O(N) TIME AND O(N) SPACE
+def reverse2(sen):
+    chars = [char for char in sen]
+    reverseListRange(chars, 0, len(sen)-1)
+
+    startOfword = 0
+    while startOfword < len(chars):
+        endOfword = startOfword
+        while endOfword < len(chars) and chars[endOfword] != " ":
+            endOfword += 1
+
+        reverseListRange(chars, startOfword, endOfword-1)
+        startOfword = endOfword + 1
+    
+    return "".join(chars)
+
+def reverseListRange(list, start, end):
+    while start <= end:
+        list[start], list[end] = list[end], list[start]
+        start,end = start+1, end-1
+    return list
