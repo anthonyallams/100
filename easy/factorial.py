@@ -1,5 +1,6 @@
 '''
 Create a function that computes the factorial of an integer
+Factorial is the product of all positive integers less than or equal to a given positive integer
 5! = 5*4*3*2*1 => 120
 '''
 import numpy as np
