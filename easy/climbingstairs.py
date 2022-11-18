@@ -35,3 +35,14 @@ def climbStairs2(n):
     else:
         memoize[n] = climbStairs2(n-1) + climbStairs2(n-2)
         return memoize[n]
+
+
+#SOLUTION 3:Using brute force/recusion
+#(2^N) TIME AND O(N) SPACE
+def climbStairs3(n):
+    if n == 2:
+        return 2
+    elif n == 3:
+        return 3
+    else:
+        return climbStairs3(n-1) + climbStairs3(n-2)
