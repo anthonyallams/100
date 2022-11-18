@@ -10,26 +10,22 @@ fibonacci(3) ==> 2
 fibonacci(8) ==> 21
 fibonacci(9) ==> 34
 '''
-from nose.tools import assert_equal
-
-# SOLUTION 1: Using loop
-
-
-def fibonacci1(n):  # O(n)
+# SOLUTION 1: Iterative approach
+#O(N) TIME AND O(N) SPACE
+def fibonacci1(n):
     # Initialize the initial fibonacci sequence to be 0 & 1
-    a = 0
-    b = 1
+    a,b = 0,1
 
     # Loop through from 2 to n-th value
     # Add 2 previous values since fibonacci is gotten by adding the 2 successive values  and return the last value of n
-    for i in range(2, n+1):
+    for _ in range(2, n+1):
         c = a + b
-        a = b
-        b = c
+        a,b = b, c
     return b
 
 
 # SOLUTION 2: Using recursion
+#O(2^N) TIME AND O(N) SPACE COS OF RECURSION
 def fibonacci2(n):
     # Check the edge case
     # Since fibonacci of 0 & 1 are constant, return n if its 0 or 1
@@ -38,19 +34,12 @@ def fibonacci2(n):
     # Recursively call fibonacci on previous 2 entries till it returns to the nth-entry
     return fibonacci2(n-1) + fibonacci2(n-2)
 
-# Test class function
-
-
-class TestFibonacci(object):
-
-    def test(self, solution):
-        assert_equal(solution(10), 55)
-        assert_equal(solution(3), 2)
-        assert_equal(solution(8), 21)
-        assert_equal(solution(9), 34)
-        print('All test cases passed')
-
-
-# Run tests
-t = TestFibonacci()
-t.test(fibonacci2)
+# SOLUTION 3: Using recursion with memoization
+#O(N) TIME AND O(N) SPACE
+def fibonacci3(n):
+    memoize = {0:0, 1:1}
+    if n in memoize:
+        return memoize[n]
+    else:
+        memoize[n] = fibonacci3(n-1) + fibonacci3(n-2)
+        return memoize[n]
