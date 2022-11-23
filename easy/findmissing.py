@@ -12,9 +12,6 @@ finder([1,2,3,4,10,11,12],[1,2,4,10,11,12]) =>3
 # SOLUTION 1: Using hashmap to store repetitions. Not optimal for duplicates
 
 
-from nose.tools import assert_equal
-
-
 def finder1(arr1, arr2):  # O(n)
     # Check if there are elements in the array
     if len(arr1) < 1 or len(arr2) < 1:
@@ -77,19 +74,3 @@ def finder3(arr1, arr2):  # O(nlogn)
 print(finder3([1, 2, 3, 4, 5, 6, 7], [3, 7, 2, 1, 4, 6]))
 # print(finder3([2, 4, 6, 8, 14, 10, 12], [2, 6, 4, 8, 10, 12]))
 
-
-# Test class function
-
-class TestFinder(object):
-
-    def test(self, solution):
-        assert_equal(solution([1, 2, 3, 4, 5, 6, 7], [3, 7, 2, 1, 4, 6]), 5)
-        assert_equal(solution([2, 4, 6, 8, 10, 12], [2, 6, 8, 10, 12]), 4)
-        assert_equal(solution([1, 2, 3, 4, 10, 11, 12],
-                              [1, 2, 4, 10, 11, 12]), 3)
-        print('All test cases passed')
-
-
-# Run tests
-t = TestFinder()
-t.test(finder1)
