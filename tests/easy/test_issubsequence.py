@@ -1,5 +1,5 @@
 import pytest
-from easy.majorityelement import isSubsequence
+from easy.issubsequence import isSubsequence
 
 
 def test_isSubsequence():

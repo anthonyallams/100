@@ -14,5 +14,13 @@ Example 2:
 Input: s = "axc", t = "ahbgdc"
 Output: false
 """
+#SOLUTION 1: Using pointers
+#O(N) TIME AND O(1) SPACE
 def isSubsequence(s, t):
-  pass
+  i,j = 0,0
+  while i < len(s) and j < len(t):
+    if s[i] == t[j]:
+      i,j = i+1, j+1
+    else:
+      j += 1
+  return True if i == len(s) else False
