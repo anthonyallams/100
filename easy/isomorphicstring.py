@@ -18,5 +18,18 @@ Example 3:
 Input: s = "paper", t = "title"
 Output: true
 """
-def isIsomorphic(s, t):
-  pass
+#SOLUTION 1: Use two hashmap to store the values and compare with adjacent characters
+#O(N) TIME AND O(N) SPACE
+def isIsomorphic(s:str, t:str)->bool:
+  """
+  Initialize two hashmaps. Loop through the elements of str
+  Add element in s to mapS and element in t to mapT
+  Check if element in s is in mapS and compare if its isomorphic. Likewise,do same for element in t
+  """
+  mapS, mapT = {},{}
+  for i,j in zip(s,t):
+    if ((i in mapS and mapS[i] != j) or (j in mapT and mapT[j] != i)):
+        return False
+    mapS[i] = j
+    mapT[j] = i
+  return True
