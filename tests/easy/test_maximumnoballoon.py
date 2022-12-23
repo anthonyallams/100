@@ -1,5 +1,5 @@
 import pytest
-from easy.maximumnoballon import maxNumberOfBalloons
+from easy.maximumnoballoon import maxNumberOfBalloons
 
 
 def test_maximumnoballon():
