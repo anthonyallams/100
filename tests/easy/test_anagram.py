@@ -1,5 +1,5 @@
 import pytest
-from easy.valid_anagram import isAnagram1, isAnagram2, isAnagram3
+from easy.valid_anagram import isAnagram1, isAnagram2, isAnagram3,isAnagram4
 
 def test_anagram_true():
     s,t = "anagram","nagaram"
@@ -12,3 +12,7 @@ def test_anagram_false():
     assert(isAnagram1(s,t))==False
     assert(isAnagram2(s,t))==False
     assert(isAnagram3(s,t))==False
+
+def test_anagram_sentence():
+    s, t = 'Helllo there@', 'There Helllo!@##$$%%.'
+    assert(isAnagram4(s,t))==True
