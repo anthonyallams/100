@@ -50,3 +50,23 @@ def pivotIndex(nums:list[int])->int:
       return i
     leftSum += nums[i]
   return -1
+
+#SOLUTION 2: Similar to 1
+#O(N) TIME AND O(1) SPACE
+def pivotIndex1(nums:list[int])->int:
+  leftSum, rightSum = 0, sum(nums)
+  for i in range(len(nums)):
+    rightSum -= nums[i]
+    if leftSum == rightSum:
+      return i
+    leftSum += nums[i]
+  return -1
+
+#SOLUTION 3: Bruteforce 
+#O(N^2) TIME AND O(N) SPACE
+def pivotIndex2(nums:list[int])->int:
+  ans = []
+  for i in range(len(nums)):
+    if sum(nums[:i]) == sum(nums[i+1:]):
+      return i
+  return -1

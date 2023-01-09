@@ -1,5 +1,5 @@
 import pytest
-from easy.findpivotindex import pivotIndex
+from easy.findpivotindex import pivotIndex, pivotIndex1, pivotIndex2
 
 
 def test_findpivotindex():
@@ -7,3 +7,9 @@ def test_findpivotindex():
     assert pivotIndex(nums) == 3
     assert pivotIndex(nums1) == -1
     assert pivotIndex(nums2) == 0
+    assert pivotIndex1(nums) == 3
+    assert pivotIndex1(nums1) == -1
+    assert pivotIndex1(nums2) == 0
+    assert pivotIndex2(nums) == 3
+    assert pivotIndex2(nums1) == -1
+    assert pivotIndex2(nums2) == 0
