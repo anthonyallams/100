@@ -24,9 +24,9 @@ Explanation: The arrays we are merging are [] and [1].
 The result of the merge is [1].
 Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
 """
-#SOLUTION 1: Iterative approach, merging in reverse order
+#SOLUTION 1: Iterative approach, merging and sorting in reverse order
 #O(N) TIME AND O(1) SPACE
-def merge(nums1, m, nums2, n):
+def merge(nums1:list, m:int, nums2:list, n:int)->list[int]:
   """
   Do not return anything, modify nums1 in-place instead.
   APPROACH:
@@ -51,4 +51,9 @@ def merge(nums1, m, nums2, n):
 #   breakpoint()
   return nums1
 
-  
+
+#SOLUTION 2: Brute force using python sort method
+#O(N^2) TIME AND O(1) SPACE
+def merge1(nums1:list, m:int, nums2:list, n:int)->list[int]:
+  nums1[:] = sorted(nums1[:m] + nums2)
+  return nums1
