@@ -18,7 +18,7 @@ def generate(numRows:int) -> list[list[int]]:
     """
     Initialize result variable for the first number in pascal triangle, 1
     Loop through the numRows, create a temp var to append 0 to the begining and end of first number
-    2nd loop to get loop through len of last element in result, add subsequent elements to row and append it to the result
+    Loop through len of last element in result, add subsequent elements to row and append it to the result
     """
     res = [[1]]
     for _ in range(numRows-1):
