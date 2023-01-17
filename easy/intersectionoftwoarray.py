@@ -40,8 +40,9 @@ def intersect(nums1:list[int],nums2:list[int])->list[int]:
 #O(NLOGN) TIME COS OF SORT FUNCTION
 def intersect1(nums1:list[int],nums2:list[int])->list[int]:
     """
-    Sort the arrays for ease of comparison. Initialize i and j
-    
+    Sort the arrays for ease of comparison. Initialize i and j indices
+    Loop through arrays and compare the individual values using i and j pointers
+    When values match, append and increment
     """
     nums1.sort()
     nums2.sort()
@@ -60,4 +61,4 @@ def intersect1(nums1:list[int],nums2:list[int])->list[int]:
             i += 1
     return res
 
-    
+
