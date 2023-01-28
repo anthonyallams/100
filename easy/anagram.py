@@ -15,7 +15,7 @@ anagrams('Helllo there@t','There Helllo!@##$$%%.') ==> True
 import re
 
 
-def anagrams1(str1, str2):  # O(n)
+def anagrams1(str1, str2):  # O(nlogn) time 
     # Lower the string characters,
     # Pass the lowercase chars through a sort function(sorted)
     # Since sorted return a list, convert to string via join
@@ -35,7 +35,7 @@ def anagrams1(str1, str2):  # O(n)
 
 
 # SOLUTION 2: Using hashmap to compare sorted string
-def anagrams2(str1, str2):  # O(n)
+def anagrams2(str1, str2):  # O(nlogn)
     # Lower the string characters,
     # Pass the lowercase chars through a sort function(sorted)
     # Since sorted return a list, convert to string via join
