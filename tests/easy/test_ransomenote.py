@@ -1,15 +1,15 @@
 import pytest
-from easy.randsomenote import canConstruct
+from easy.ransomenote import canConstruct
 
-def test_randsomenote_1():
+def test_ransomenote_1():
     ransomNote, magazine =  "a","b" #false
     assert(canConstruct(ransomNote,magazine)) == False
 
 
-def test_randsomenote_2():
+def test_ransomenote_2():
     ransomNote, magazine = "aa","ab" #false
     assert(canConstruct(ransomNote,magazine)) == False
 
-def test_randsomenote_3():
+def test_ransomenote_3():
     ransomNote, magazine = "aa", "aab" #true
-    assert(canConstruct(ransomNote,magazine)) == False
+    assert(canConstruct(ransomNote,magazine)) == True
