@@ -1,1 +1,5 @@
 .DS_Store
+easy/__pycache__/*
+medium/__pycache__/*
+tests/easy/__pycache__/*
+tests/medium/__pycache__/*
