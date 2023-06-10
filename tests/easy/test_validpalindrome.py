@@ -2,7 +2,7 @@ import pytest
 from easy.validpalindrome import isPalindrome1, isPalindrome2
 
 
-#To get the nums
+# To get the nums
 def test_ispalindrome():
     s = "A man, a plan, a canal: Panama"
     y = "race a car"

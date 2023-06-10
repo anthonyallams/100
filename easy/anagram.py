@@ -1,4 +1,4 @@
-'''
+"""
 CHALLENGE
 Given two string arguments, check to see if they are anagrams of eachother. A string is an anagram of another if it uses the same characters in the same quantity. Only consider characters, not spaces or punctuation. Consider capital letters to be the same as lower case
 
@@ -8,20 +8,20 @@ anagrams('Hi there','Bye there') ==> False
 anagrams('rail safety','fairy tales') ==> True
 anagrams('Helllo there@','There Helllo!@##$$%%.') ==> False
 anagrams('Helllo there@t','There Helllo!@##$$%%.') ==> True
-'''
+"""
 
 # SOLUTION 1: Sorting and Comparing the characters in sorted string
 # Import regular expressions and test module
 import re
 
 
-def anagrams1(str1, str2):  # O(nlogn) time 
+def anagrams1(str1, str2):  # O(nlogn) time
     # Lower the string characters,
     # Pass the lowercase chars through a sort function(sorted)
     # Since sorted return a list, convert to string via join
     # Replace non-alphanumeric characters using re.sub()
-    word1 = re.sub('[^\w]', '', ''.join(sorted(str1.lower())))
-    word2 = re.sub('[^\w]', '', ''.join(sorted(str2.lower())))
+    word1 = re.sub("[^\w]", "", "".join(sorted(str1.lower())))
+    word2 = re.sub("[^\w]", "", "".join(sorted(str2.lower())))
 
     # Compare the length of word1 and word2
     if len(word1) != len(word2):
@@ -40,8 +40,8 @@ def anagrams2(str1, str2):  # O(nlogn)
     # Pass the lowercase chars through a sort function(sorted)
     # Since sorted return a list, convert to string via join
     # Replace non-alphanumeric characters using re.sub()
-    word1 = re.sub('[^\w]', '', ''.join(sorted(str1.lower())))
-    word2 = re.sub('[^\w]', '', ''.join(sorted(str2.lower())))
+    word1 = re.sub("[^\w]", "", "".join(sorted(str1.lower())))
+    word2 = re.sub("[^\w]", "", "".join(sorted(str2.lower())))
 
     # Compare the length of both strings
     if len(word1) != len(word2):
@@ -73,4 +73,5 @@ def anagrams2(str1, str2):  # O(nlogn)
             return False
     return True
 
-anagrams1('Helllo there@', 'There Helllo!@##$$%%.')
+
+anagrams1("Helllo there@", "There Helllo!@##$$%%.")

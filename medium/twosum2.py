@@ -22,15 +22,17 @@ Input: numbers = [-1,0], target = -1
 Output: [1,2]
 Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2].
 """
-#SOLUTION 1: Using pointers
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION 1: Using pointers
+# O(N) TIME AND O(1) SPACE
 def twoSum1(numbers, target):
-  l, r = 0, len(numbers)-1
-  while l <= r:
-    cursum = numbers[l] + numbers[r]
-    if cursum == target:
-        return [l+1, r+1]
-    elif cursum > target:
-        r -= 1
-    else:
-        l += 1
+    l, r = 0, len(numbers) - 1
+    while l <= r:
+        cursum = numbers[l] + numbers[r]
+        if cursum == target:
+            return [l + 1, r + 1]
+        elif cursum > target:
+            r -= 1
+        else:
+            l += 1

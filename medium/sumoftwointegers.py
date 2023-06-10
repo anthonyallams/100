@@ -12,5 +12,7 @@ Example 2:
 Input: a = 2, b = 3
 Output: 5
 """
+
+
 def getSum(a, b):
-  pass
+    pass

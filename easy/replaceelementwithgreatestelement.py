@@ -21,20 +21,23 @@ Input: arr = [400]
 Output: [-1]
 Explanation: There are no elements to the right of index 0.
 """
-#SOLUTION 1: Using a iterative approach to loop in reverse order and calculate the max of remaining elements
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION 1: Using a iterative approach to loop in reverse order and calculate the max of remaining elements
+# O(N) TIME AND O(1) SPACE
 def replaceElements(arr):
     rightMax = -1
-    for i in range(len(arr)-1, -1, -1):
+    for i in range(len(arr) - 1, -1, -1):
         newMax = max(rightMax, arr[i])
         arr[i], rightMax = rightMax, newMax
     return arr
 
+
 def replaceElements(arr):
     rightMax = -1
-    i = len(arr)-1
+    i = len(arr) - 1
     while i >= 0:
         newMax = max(rightMax, arr[i])
         arr[i], rightMax = rightMax, newMax
-        i -=   1
+        i -= 1
     return arr

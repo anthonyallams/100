@@ -1,4 +1,4 @@
-'''
+"""
 CHALLENGE: FIND MISSING ELEMENTS IN ARRAY
 Given an array of integers, find the missing elements within the min and max elements of the array
 
@@ -7,9 +7,10 @@ Given the following array, you will get
 missing_element([2,3,5,6,10]) => [4,7,8,9]
 missing_element([10,14,16]) => [11,12,13,15]
 missing_element([1,2,3,6]) => [4,5]
-'''
+"""
 
 # SOLUTION 1: Using list comprehension
+
 
 def missing_element1(arr):  # O(n)
     return [a for a in range(arr[0], max(arr)) if a not in arr]
@@ -23,4 +24,3 @@ def missing_element2(arr):  # O(1)
 # SOLUTION 3: Using difference method, will work when there is no consideration for duplicates
 def missing_element3(arr):  # O(1)
     return sorted(set(range(min(arr), max(arr))).difference(arr))
-

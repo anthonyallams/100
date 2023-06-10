@@ -16,31 +16,33 @@ Example 2:
 Input: height = [1,1]
 Output: 1
 """
-#SOLUTION 1: Brute force/Using nested loop
-#O(N^2) TIME AND O(1) SPACE
+
+
+# SOLUTION 1: Brute force/Using nested loop
+# O(N^2) TIME AND O(1) SPACE
 def maxArea1(height):
-  result = 0
+    result = 0
 
-  for l in range(len(height)):
-    for r in range(l+1, len(height)):
-      area = (r - l) * min(height[l], height[r])
-      result = max(result, area)
-  return result
+    for l in range(len(height)):
+        for r in range(l + 1, len(height)):
+            area = (r - l) * min(height[l], height[r])
+            result = max(result, area)
+    return result
 
-#SOLUTION 2: Using pointers
-#O(N) TIME AND O(1) SPACE
+
+# SOLUTION 2: Using pointers
+# O(N) TIME AND O(1) SPACE
 def maxArea2(height):
-  result = 0
-  l,r = 0, len(height)-1
+    result = 0
+    l, r = 0, len(height) - 1
 
-  while l < r:
-    area = (r - l) * min(height[l], height[r])
-    result = max(result, area)
+    while l < r:
+        area = (r - l) * min(height[l], height[r])
+        result = max(result, area)
 
-    if height[l] < height[r]:
-      l += 1
-    else:
-      r -= 1
+        if height[l] < height[r]:
+            l += 1
+        else:
+            r -= 1
 
-  return result
-
+    return result

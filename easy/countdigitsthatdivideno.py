@@ -20,8 +20,9 @@ Output: 4
 Explanation: 1248 is divisible by all of its digits, hence the answer is 4.
 """
 
-#SOLUTION 1: Iterative approach
-#O(N) TIME AND O(1) SPACE
+
+# SOLUTION 1: Iterative approach
+# O(N) TIME AND O(1) SPACE
 def countDigits(num: int):
     result = 0
     for n in str(num):

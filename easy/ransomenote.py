@@ -18,14 +18,16 @@ Example 3:
 Input: ransomNote = "aa", magazine = "aab"
 Output: true
 """
-# Using collections.Counter 
+# Using collections.Counter
 # O(N) TIME AND O(N) SPACE
 from collections import Counter
+
+
 def canConstruct(ransomNote: str, magazine: str) -> bool:
     countRansome = Counter(ransomNote)
     countMagazine = Counter(magazine)
 
     for letter in countRansome:
-        if countRansome[letter]>countMagazine[letter]:
+        if countRansome[letter] > countMagazine[letter]:
             return False
     return True

@@ -18,45 +18,50 @@ Explanation:
 rotate 1 steps to the right: [99,-1,-100,3]
 rotate 2 steps to the right: [3,99,-1,-100]
 """
-#SOLUTION 1: Using pointers to replace inplace based on position of k 
-#O(N) TIME AND O(1) SPACE (OPTIMAL SOLUTION)
-def rotate(nums:list, k:int)-> list:
+
+
+# SOLUTION 1: Using pointers to replace inplace based on position of k
+# O(N) TIME AND O(1) SPACE (OPTIMAL SOLUTION)
+def rotate(nums: list, k: int) -> list:
     """
     Do not return anything, modify nums in-place instead.
     """
-    #Reverse the entire array using replace helper function
+    # Reverse the entire array using replace helper function
     k = k % len(nums)
-    l,r = 0, len(nums)-1
-    swap(nums, l,r)
-
-    #Reverse the array from 0 to position k
-    l, r = 0, k-1
+    l, r = 0, len(nums) - 1
     swap(nums, l, r)
 
-    #Reverse the array from position k to end
-    l, r = k,len(nums)-1
+    # Reverse the array from 0 to position k
+    l, r = 0, k - 1
+    swap(nums, l, r)
+
+    # Reverse the array from position k to end
+    l, r = k, len(nums) - 1
     swap(nums, l, r)
 
     return nums
 
-def swap(nums:list, l:int, r:int)->list:
+
+def swap(nums: list, l: int, r: int) -> list:
     while l <= r:
-        nums[l],nums[r] = nums[r],nums[l]
-        l,r = l+1, r-1
+        nums[l], nums[r] = nums[r], nums[l]
+        l, r = l + 1, r - 1
     return nums
 
-#SOLUTION 2: Loop through the entire array and use (i+k) % len(nums) to replace elements
-#O(N) TIME AND O(N) SPACE
-def rotate1(nums:list, k:int)-> list:
-    rotated = [0] * len(nums) 
+
+# SOLUTION 2: Loop through the entire array and use (i+k) % len(nums) to replace elements
+# O(N) TIME AND O(N) SPACE
+def rotate1(nums: list, k: int) -> list:
+    rotated = [0] * len(nums)
     for i in range(len(nums)):
         pos = (i + k) % len(nums)
         rotated[pos] = nums[i]
     return rotated
 
-#SOLUTION 3: Pythonic solution
-#O(N) TIME AND O(N) SPACE
-def rotate2(nums:list, k:int)-> list:
-    k = k % len(nums) #To avoid rotations
+
+# SOLUTION 3: Pythonic solution
+# O(N) TIME AND O(N) SPACE
+def rotate2(nums: list, k: int) -> list:
+    k = k % len(nums)  # To avoid rotations
     nums[:] = nums[-k:] + nums[:-k]
     return nums

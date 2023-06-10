@@ -30,43 +30,47 @@ The pivot index is 0.
 Left sum = 0 (no elements to the left of index 0)
 Right sum = nums[1] + nums[2] = 1 + -1 = 0
 """
-#SOLUTION ONE: Subtracting the rightSum from the total
-#O(N) TIME AND O(1) SPACE
-def pivotIndex(nums:list[int])->int:
-  """
-  ALGORITHM:
-  Get the sum of elements in array as total and initialize the leftSum
-  LeftSum is addition of consecutive elements in array
-  Subtract the element and leftSum to get the right sum
-  Loop through the array and for each iteration, get the rightSum
-  Return index when rightSum == leftSum else return -1
-  """
-  total = sum(nums)
-  leftSum = 0
 
-  for i in range(len(nums)):
-    rightSum = total - nums[i] - leftSum
-    if rightSum == leftSum:
-      return i
-    leftSum += nums[i]
-  return -1
 
-#SOLUTION 2: Similar to 1
-#O(N) TIME AND O(1) SPACE
-def pivotIndex1(nums:list[int])->int:
-  leftSum, rightSum = 0, sum(nums)
-  for i in range(len(nums)):
-    rightSum -= nums[i]
-    if leftSum == rightSum:
-      return i
-    leftSum += nums[i]
-  return -1
+# SOLUTION ONE: Subtracting the rightSum from the total
+# O(N) TIME AND O(1) SPACE
+def pivotIndex(nums: list[int]) -> int:
+    """
+    ALGORITHM:
+    Get the sum of elements in array as total and initialize the leftSum
+    LeftSum is addition of consecutive elements in array
+    Subtract the element and leftSum to get the right sum
+    Loop through the array and for each iteration, get the rightSum
+    Return index when rightSum == leftSum else return -1
+    """
+    total = sum(nums)
+    leftSum = 0
 
-#SOLUTION 3: Bruteforce 
-#O(N^2) TIME AND O(N) SPACE
-def pivotIndex2(nums:list[int])->int:
-  ans = []
-  for i in range(len(nums)):
-    if sum(nums[:i]) == sum(nums[i+1:]):
-      return i
-  return -1
+    for i in range(len(nums)):
+        rightSum = total - nums[i] - leftSum
+        if rightSum == leftSum:
+            return i
+        leftSum += nums[i]
+    return -1
+
+
+# SOLUTION 2: Similar to 1
+# O(N) TIME AND O(1) SPACE
+def pivotIndex1(nums: list[int]) -> int:
+    leftSum, rightSum = 0, sum(nums)
+    for i in range(len(nums)):
+        rightSum -= nums[i]
+        if leftSum == rightSum:
+            return i
+        leftSum += nums[i]
+    return -1
+
+
+# SOLUTION 3: Bruteforce
+# O(N^2) TIME AND O(N) SPACE
+def pivotIndex2(nums: list[int]) -> int:
+    ans = []
+    for i in range(len(nums)):
+        if sum(nums[:i]) == sum(nums[i + 1 :]):
+            return i
+    return -1

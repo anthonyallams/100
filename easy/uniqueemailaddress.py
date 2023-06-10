@@ -28,29 +28,32 @@ Example 2:
 Input: emails = ["a@leetcode.com","b@leetcode.com","c@leetcode.com"]
 Output: 3
 """
-#SOLUTION 1: Iterative approach
-#O(N) TIME AND O(N) SPACE
-def numUniqueEmails(emails):
-  container = set()
-  for email in emails:
-    local,domain = email.split('@')
-    local = local.split('+')[0]
-    local = local.replace('.','')
-    container.add((local,domain))
-  return len(container)
 
-#SOLUTION 2: Without using inbuilt methods
-#O(N) TIME AND O(N) SPACE
+
+# SOLUTION 1: Iterative approach
+# O(N) TIME AND O(N) SPACE
+def numUniqueEmails(emails):
+    container = set()
+    for email in emails:
+        local, domain = email.split("@")
+        local = local.split("+")[0]
+        local = local.replace(".", "")
+        container.add((local, domain))
+    return len(container)
+
+
+# SOLUTION 2: Without using inbuilt methods
+# O(N) TIME AND O(N) SPACE
 def numUniqueEmails1(emails):
-  container = set()
-  for email in emails:
-    i,local = 0, ''
-    while email[i] not in ["@", "+"]:
-        if email[i] != '.':
-            local += email[i]
-        i += 1
-    while email[i] != "@":
-        i += 1
-    domain = email[i+1:]
-    container.add((local,domain))
-  return len(container)
+    container = set()
+    for email in emails:
+        i, local = 0, ""
+        while email[i] not in ["@", "+"]:
+            if email[i] != ".":
+                local += email[i]
+            i += 1
+        while email[i] != "@":
+            i += 1
+        domain = email[i + 1 :]
+        container.add((local, domain))
+    return len(container)

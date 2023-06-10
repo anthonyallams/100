@@ -24,36 +24,38 @@ Explanation: The arrays we are merging are [] and [1].
 The result of the merge is [1].
 Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
 """
-#SOLUTION 1: Iterative approach, merging and sorting in reverse order
-#O(N) TIME AND O(1) SPACE
-def merge(nums1:list, m:int, nums2:list, n:int)->list[int]:
-  """
-  Do not return anything, modify nums1 in-place instead.
-  APPROACH:
-  1. Get the length/last index of nums1
-  2. Loop through both arrays and merge in reverse order
-  3. Check if there are elements in nums2 and add it to nums1
-  """
-  last = m + n -1
-
-  while m > 0 and n > 0:
-    if nums1[m-1] > nums2[n-1]:
-        nums1[last] = nums1[m-1]
-        m -= 1
-    else:
-        nums1[last] = nums2[n-1]
-        n -= 1
-    last -= 1
-
-  while n > 0:
-    nums1[last] = nums2[n-1]
-    n, last = n-1, last -1
-#   breakpoint()
-  return nums1
 
 
-#SOLUTION 2: Brute force using python sort method
-#O(N^2) TIME AND O(1) SPACE
-def merge1(nums1:list, m:int, nums2:list, n:int)->list[int]:
-  nums1[:] = sorted(nums1[:m] + nums2)
-  return nums1
+# SOLUTION 1: Iterative approach, merging and sorting in reverse order
+# O(N) TIME AND O(1) SPACE
+def merge(nums1: list, m: int, nums2: list, n: int) -> list[int]:
+    """
+    Do not return anything, modify nums1 in-place instead.
+    APPROACH:
+    1. Get the length/last index of nums1
+    2. Loop through both arrays and merge in reverse order
+    3. Check if there are elements in nums2 and add it to nums1
+    """
+    last = m + n - 1
+
+    while m > 0 and n > 0:
+        if nums1[m - 1] > nums2[n - 1]:
+            nums1[last] = nums1[m - 1]
+            m -= 1
+        else:
+            nums1[last] = nums2[n - 1]
+            n -= 1
+        last -= 1
+
+    while n > 0:
+        nums1[last] = nums2[n - 1]
+        n, last = n - 1, last - 1
+    #   breakpoint()
+    return nums1
+
+
+# SOLUTION 2: Brute force using python sort method
+# O(N^2) TIME AND O(1) SPACE
+def merge1(nums1: list, m: int, nums2: list, n: int) -> list[int]:
+    nums1[:] = sorted(nums1[:m] + nums2)
+    return nums1

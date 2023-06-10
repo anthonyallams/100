@@ -1,4 +1,4 @@
-'''
+"""
 CHALLENGE: FIND PRIME FACTORS OF A NUMBER
 Given a non-negative integer, find the prime factors
 NB: prime factorization or integer factorization of a number is breaking a number down into the set of prime numbers which multiply together to result in the original number.
@@ -13,7 +13,7 @@ prime_factors(48) => [2,2,2,2,3]
 prime_factors(147) => [3,7,7]
 prime_factors(330) =>[2,3,5,11]
 prime_factors(1318) =>[2,659]
-'''
+"""
 
 
 # SOLUTION 1: Brute force approach: For loop
@@ -27,7 +27,7 @@ def prime_factors1(num):  # O(n^2)
     # Prime numbers are usually between 2 and the square root of the number, or a value more than the square root which is also prime number. Also prime numbers divide prime factors without remainder
     # Since 2 is the first prime number, start looping from 2 to sqrt root and record each range value
     # Then divide number with value in the range
-    for el in range(2, int(math.sqrt(num)+1)):
+    for el in range(2, int(math.sqrt(num) + 1)):
         while num % el == 0:
             prime_factors.append(el)
             num /= el
@@ -35,6 +35,7 @@ def prime_factors1(num):  # O(n^2)
     if num > 1:
         prime_factors.append(num)
     return prime_factors
+
 
 # SOLUTION 2: Brute force: Using while loop - Similar to Solution 1, aside from use of while loop
 
@@ -57,6 +58,7 @@ def prime_factors2(num):
 
     # Test class function
 
+
 # SOLUTION 3: Optimized solution using loop
 
 
@@ -70,7 +72,7 @@ def prime_factors3(num):
         num /= 2
 
     # Start looping from 3 with step of 2, repeat the previous steps
-    for el in range(3, int(math.sqrt(num))+1, 2):
+    for el in range(3, int(math.sqrt(num)) + 1, 2):
         while num % el == 0:
             prime_factors.append(int(el))
             num /= el
@@ -78,4 +80,3 @@ def prime_factors3(num):
     if num > 2:
         prime_factors.append(num)
     return prime_factors
-

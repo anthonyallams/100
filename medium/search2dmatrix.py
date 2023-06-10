@@ -17,19 +17,19 @@ Example 2:
 Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
 Output: false
 """
-#Using Binary search
-#O(LOGN) TIME AND O(1) SPACE
+
+
+# Using Binary search
+# O(LOGN) TIME AND O(1) SPACE
 def searchMatrix(matrix: list[list[int]], target: int):
-    """
-    
-    """
-    row1,col1 = len(matrix), len(matrix[0])
-    left, right = 0, row1*col1
+    """ """
+    row1, col1 = len(matrix), len(matrix[0])
+    left, right = 0, row1 * col1
 
     while left < right:
-        mid = (left + right)//2
+        mid = (left + right) // 2
         row = mid // col1
-        col = mid% col1
+        col = mid % col1
         num = matrix[row][col]
         if num == target:
             return True

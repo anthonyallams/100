@@ -22,5 +22,7 @@ Input: n = 30, k = 30, target = 500
 Output: 222616187
 Explanation: The answer must be returned modulo 109 + 7.
 """
+
+
 def numRollsToTarget(self, n: int, k: int, target: int) -> int:
-  pass
+    pass

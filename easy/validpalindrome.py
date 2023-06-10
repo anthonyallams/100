@@ -3,16 +3,19 @@ VALID PALINDROME
 https://leetcode.com/problems/valid-palindrome/
 A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 """
-#SOLUTION 1: Using inbuilt python methods for string reversal and to check for alphanumeric
-#O(N) TIME AND O(N) SPACE 
+
+
+# SOLUTION 1: Using inbuilt python methods for string reversal and to check for alphanumeric
+# O(N) TIME AND O(N) SPACE
 def isPalindrome1(s):
-    output = ''.join([elem for elem in s.lower() if elem.isalnum()])
+    output = "".join([elem for elem in s.lower() if elem.isalnum()])
     return output == output[::-1]
 
-#SOLUTION 2: Using pointers and a helper function to decide to check for alphanumeric chars
-#O(N) TIME AND O(1) SPACE
+
+# SOLUTION 2: Using pointers and a helper function to decide to check for alphanumeric chars
+# O(N) TIME AND O(1) SPACE
 def isPalindrome2(s):
-    left, right = 0, len(s)-1
+    left, right = 0, len(s) - 1
     while left <= right:
         while left < right and not isalpha(s[left]):
             left += 1
@@ -24,9 +27,6 @@ def isPalindrome2(s):
         right -= 1
     return True
 
+
 def isalpha(elem):
-    return (
-        'A'<= elem <= 'Z' or
-        'a'<= elem <= 'z' or
-        '0'<= elem <= '9'
-    )
+    return "A" <= elem <= "Z" or "a" <= elem <= "z" or "0" <= elem <= "9"
