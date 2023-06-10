@@ -20,7 +20,9 @@ Example 3:
 Input: word = "leetcode"
 Output: true
 """
-#SOLUTION 1: Using inbuilt python methods to check upper, lower and title case
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION 1: Using inbuilt python methods to check upper, lower and title case
+# O(N) TIME AND O(1) SPACE
 def detectCapitalUse(word: str):
     return word.isupper() or word.islower() or word.istitle()

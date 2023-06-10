@@ -1,4 +1,4 @@
-'''
+"""
 CHALLENGE: REVERSE AN ITERABLE
 Given an iterable value, reverse it
 NB: Iterable is an object, which one can iterate over. It generates an Iterator when passed to iter() method. Iterator is an object, which is used to iterate over an iterable object using __next__() method. Iterators have __next__() method, which returns the next item of the object
@@ -10,7 +10,7 @@ reverse([1,2,3,4]) => [4,3,2,1]
 reverse((1,2,3,4)) => (4,3,2,1)
 reverse({1:'apple', 2:'orange', 3:'banana', 4:'mango'})=> 
         {'apple': 1, 'banana': 3, 'mango': 4, 'orange': 2}
-'''
+"""
 
 
 def reverse_iterable(input):  # O(n)
@@ -25,5 +25,4 @@ def reverse_iterable(input):  # O(n)
         else:
             return
     except TypeError:
-        print(f'{input} is not an iterable. Try again')
-
+        print(f"{input} is not an iterable. Try again")

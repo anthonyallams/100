@@ -2,7 +2,7 @@ import pytest
 from easy.palindromenumber import isPalindrome1, isPalindrome2, isPalindrome3
 
 
-#To get the nums
+# To get the nums
 def test_ispalindrome():
     x = 1332231
     y = 121

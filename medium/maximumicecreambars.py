@@ -24,24 +24,29 @@ Input: costs = [1,6,3,1,2,5], coins = 20
 Output: 6
 Explanation: The boy can buy all the ice cream bars for a total price of 1 + 6 + 3 + 1 + 2 + 5 = 18.
 """
-#SOLUTION 1: Using sort method
-#O(NLOGN) TIME AND O(1) SPACE
-def maxIceCream(costs: list[int], coins: int)->int:
+
+
+# SOLUTION 1: Using sort method
+# O(NLOGN) TIME AND O(1) SPACE
+def maxIceCream(costs: list[int], coins: int) -> int:
     costs.sort()
     result = 0
 
-    for i,c in enumerate(costs):
+    for i, c in enumerate(costs):
         result += c
         if result > coins:
             return i
     return len(costs)
 
-#SOLUTION 2: Using inbuilt python methods: sorted, accumulate & bisect
+
+# SOLUTION 2: Using inbuilt python methods: sorted, accumulate & bisect
 from bisect import bisect
 from itertools import accumulate
-def maxIceCream2(costs: list[int], coins: int)->int:
+
+
+def maxIceCream2(costs: list[int], coins: int) -> int:
     """
     bisect method finds the position in a sorted list where a number can be inserted without distorting the sort order of the list eg: bisect([1,3,4],2)->[1,2,3,4]
     accumulate returns a running total/successive values of a list [1,2,3,4]->[1,3,6,10]
     """
-    return bisect(list(accumulate(sorted(costs))),coins)
+    return bisect(list(accumulate(sorted(costs))), coins)

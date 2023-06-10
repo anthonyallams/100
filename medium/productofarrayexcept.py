@@ -17,19 +17,21 @@ Output: [0,0,9,0,0]
 Follow up: Can you solve the problem in O(1) extra space complexity? 
 (The output array does not count as extra space for space complexity analysis.)
 """
-#SOLUTION: Using prefix and postfix to calculate the sum of the preceding and subsequent values on the fly
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION: Using prefix and postfix to calculate the sum of the preceding and subsequent values on the fly
+# O(N) TIME AND O(1) SPACE
 def productExceptSelf(nums):
-  res = [1] * len(nums)
+    res = [1] * len(nums)
 
-  prefix = 1
-  for i in range(len(nums)):
-    res[i] = prefix
-    prefix *= nums[i]
+    prefix = 1
+    for i in range(len(nums)):
+        res[i] = prefix
+        prefix *= nums[i]
 
-  postfix = 1
-  for i in range(len(nums)-1, -1, -1):
-    res[i] *= postfix
-    postfix *= nums[i]
+    postfix = 1
+    for i in range(len(nums) - 1, -1, -1):
+        res[i] *= postfix
+        postfix *= nums[i]
 
-  return res
+    return res

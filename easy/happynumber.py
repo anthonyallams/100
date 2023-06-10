@@ -17,12 +17,14 @@
 # Input: n = 2
 # Output: false
 """
-#SOLUTION 1: Using bit manipulation to calculate the sumofSquares
-#O(N) TIME AND O(N) SPACE COS OF HASHSET
+
+
+# SOLUTION 1: Using bit manipulation to calculate the sumofSquares
+# O(N) TIME AND O(N) SPACE COS OF HASHSET
 def isHappy(n):
     """
-    Fist initialize a hashset to hold the sum of squares, 
-    if the sum of squares starting from n is not in the set,add it, 
+    Fist initialize a hashset to hold the sum of squares,
+    if the sum of squares starting from n is not in the set,add it,
     and if the result of sum of squares is 1, then the number is happy.
     If the n is already in the hashset, n is not happy, as this is infinite loop
     """
@@ -31,13 +33,13 @@ def isHappy(n):
         container.add(n)
         n = sumOfSquares(n)
     return n == 1
-    
+
 
 def sumOfSquares(n):
     output = 0
     while n:
         digit = n % 10
-        digit = digit ** 2
+        digit = digit**2
         output += digit
         n //= 10
 

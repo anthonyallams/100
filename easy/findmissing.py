@@ -1,4 +1,4 @@
-'''
+"""
 CHALLENGE: FIND MISSING ELEMENT IN AN ARRAY
 Given an array of non-negative integers. A second array is formed by shuffling the elements of the first array and deleting a random element. Given these two arrays, find which element is missing in the second array.
 
@@ -7,24 +7,26 @@ Given the following array, the first array is shuffled and the following numbers
 finder([1,2,3,4,5,6,7],[3,7,2,1,4,6]) => 5
 finder([2,4,6,8,10,12],[2,6,8,10,12]) => 4
 finder([1,2,3,4,10,11,12],[1,2,4,10,11,12]) =>3
-'''
-#SOLUTION 1: Subtracting the sum of arr2 from arr1
-#O(N) TIME AND O(1)
+"""
+
+
+# SOLUTION 1: Subtracting the sum of arr2 from arr1
+# O(N) TIME AND O(1)
 def finder1(arr1, arr2):
     return sum(arr1) - sum(arr2)
 
-#SOLUTION 2: Using hashmap
-#O(N) TIME AND O(N) SPACE
+
+# SOLUTION 2: Using hashmap
+# O(N) TIME AND O(N) SPACE
 def finder2(arr1, arr2):
     hashmap = {}
 
     for arr in arr1:
         hashmap[arr] = 1 + hashmap.get(arr, 0)
-    
+
     for el in hashmap:
         if el not in arr2:
             return el
-
 
 
 # # SOLUTION 1: Using hashmap to store repetitions. Not optimal for duplicates
@@ -87,5 +89,3 @@ def finder2(arr1, arr2):
 
 #             return i
 #     return arr1[-1]
-
-

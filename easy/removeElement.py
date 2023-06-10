@@ -41,9 +41,11 @@ Explanation: Your function should return k = 5, with the first five elements of 
 Note that the five elements can be returned in any order.
 It does not matter what you leave beyond the returned k (hence they are underscores).
 """
-#SOLUTION 1: Using a count to get the number of val elements in the nums list
-#O(N) TIME AND O(1) SPACE
-def removeElement(nums:list, val:int)->int:
+
+
+# SOLUTION 1: Using a count to get the number of val elements in the nums list
+# O(N) TIME AND O(1) SPACE
+def removeElement(nums: list, val: int) -> int:
     """
     Initialize counter k
     Loop through len of nums and if element is not val, increment counter and change element
@@ -55,9 +57,10 @@ def removeElement(nums:list, val:int)->int:
             k += 1
     return k
 
-#SOLUTION 2: Enhanced moveZeros/Using a pointer to move val to last position in loop and count occurence
-#O(N) TIME AND O(1) SPACE
-def removeElement1(nums:list, val:int)->int:
+
+# SOLUTION 2: Enhanced moveZeros/Using a pointer to move val to last position in loop and count occurence
+# O(N) TIME AND O(1) SPACE
+def removeElement1(nums: list, val: int) -> int:
     """
     Initialize left pointer/counter
     Loop through the len of nums using right pointer and check if element is val
@@ -67,10 +70,11 @@ def removeElement1(nums:list, val:int)->int:
     for r in range(len(nums)):
         # breakpoint()
         if nums[r] != val:
-            nums[l],nums[r] = nums[r],nums[l]
+            nums[l], nums[r] = nums[r], nums[l]
             l += 1
     return l
 
-#SOLUTION 3: Using inbuilt methods -O(N) TIME AND O(1) SPACE
-def removeElement2(nums:list, val:int)->int:
+
+# SOLUTION 3: Using inbuilt methods -O(N) TIME AND O(1) SPACE
+def removeElement2(nums: list, val: int) -> int:
     return len([x for x in nums if x != val])

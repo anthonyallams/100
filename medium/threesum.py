@@ -25,23 +25,25 @@ Input: nums = [0,0,0]
 Output: [[0,0,0]]
 Explanation: The only possible triplet sums up to 0.
 """
-#SOLUTION 1: Using two loops: First to get the first element and 2nd to perform a two sum(pointer operation) on the remaining two elements
-#O(N^2) TIME AND O(N) SPACE
-def threeSum1(nums):
-  result = []
-  nums.sort()
-  for i in range(len(nums)-1):
-    if i > 0 and nums[i] == nums[i-1]:
-      continue
 
-    l,r = i+1, len(nums)-1
-    while l < r:
-      cursum = nums[i] + nums[l] + nums[r]
-      if cursum == 0:
-        result.append([nums[i], nums[l], nums[r]])
-        l,r = l+1, r-1
-      elif cursum > 0:
-        r -= 1
-      else:
-        l += 1
-  return result
+
+# SOLUTION 1: Using two loops: First to get the first element and 2nd to perform a two sum(pointer operation) on the remaining two elements
+# O(N^2) TIME AND O(N) SPACE
+def threeSum1(nums):
+    result = []
+    nums.sort()
+    for i in range(len(nums) - 1):
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
+
+        l, r = i + 1, len(nums) - 1
+        while l < r:
+            cursum = nums[i] + nums[l] + nums[r]
+            if cursum == 0:
+                result.append([nums[i], nums[l], nums[r]])
+                l, r = l + 1, r - 1
+            elif cursum > 0:
+                r -= 1
+            else:
+                l += 1
+    return result

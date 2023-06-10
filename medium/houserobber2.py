@@ -24,10 +24,13 @@ Example 3:
 Input: nums = [1,2,3]
 Output: 3
 """
-#SOLUTION 1: Using a helper function to get the maximum/house robber 1, then removing adjacent values
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION 1: Using a helper function to get the maximum/house robber 1, then removing adjacent values
+# O(N) TIME AND O(1) SPACE
 def rob(nums):
-  return max(nums[0], helper(nums[1:]), helper(nums[:-1]))
+    return max(nums[0], helper(nums[1:]), helper(nums[:-1]))
+
 
 def helper(nums):
     rob1, rob2 = 0, 0

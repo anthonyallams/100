@@ -16,8 +16,10 @@ Example 3:
 Input: pattern = "aaaa", s = "dog cat cat dog"
 Output: false
 """
-#SOLUTION 1: Using zip function and hashmap
-#O(N) TIME AND O(N) SPACE
+
+
+# SOLUTION 1: Using zip function and hashmap
+# O(N) TIME AND O(N) SPACE
 def wordPattern(pattern: str, s: str) -> bool:
     """
     Define a hashmap to store word-to-letter and letter-to-words
@@ -27,11 +29,11 @@ def wordPattern(pattern: str, s: str) -> bool:
     words = s.split()
     if len(words) != len(pattern):
         return False
-    
+
     wordToLetter = {}
     letterToWord = {}
 
-    for letter,word in zip(pattern, words):
+    for letter, word in zip(pattern, words):
         if word in wordToLetter and wordToLetter[word] != letter:
             return False
         else:
@@ -39,5 +41,5 @@ def wordPattern(pattern: str, s: str) -> bool:
                 return False
         wordToLetter[word] = letter
         letterToWord[letter] = word
-        
+
     return True

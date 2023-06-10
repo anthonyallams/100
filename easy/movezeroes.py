@@ -12,15 +12,17 @@ Example 2:
 Input: nums = [0]
 Output: [0]
 """
-#SOLUTION 1:Use pointers
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION 1:Use pointers
+# O(N) TIME AND O(1) SPACE
 def moveZeroes(nums):
-  """
-  Do not return anything, modify nums in-place instead.
-  """
-  l = 0
-  for r in range(len(nums)):
-    if nums[r]:
-        nums[l], nums[r] = nums[r], nums[l]
-        l += 1
-  return nums
+    """
+    Do not return anything, modify nums in-place instead.
+    """
+    l = 0
+    for r in range(len(nums)):
+        if nums[r]:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+    return nums

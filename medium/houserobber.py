@@ -19,11 +19,13 @@ Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 Total amount you can rob = 2 + 9 + 1 = 12.
 """
-#SOLUTION 1: Solving the subarray problem using dynamic programming
-#O(N) TIME AND O(1) SPACE
+
+
+# SOLUTION 1: Solving the subarray problem using dynamic programming
+# O(N) TIME AND O(1) SPACE
 def rob(nums):
-  rob1, rob2 = 0,0
-  for num in nums:
-    temp = max(rob1 + num, rob2)
-    rob1, rob2 = rob2, temp
-  return rob2
+    rob1, rob2 = 0, 0
+    for num in nums:
+        temp = max(rob1 + num, rob2)
+        rob1, rob2 = rob2, temp
+    return rob2
