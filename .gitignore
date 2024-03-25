@@ -1,5 +1,30 @@
+# MacOS
 .DS_Store
-easy/__pycache__/*
-medium/__pycache__/*
-tests/easy/__pycache__/*
-tests/medium/__pycache__/*
+
+# Virtual Environment
+.venv/
+venv/
+
+
+# Pycache
+*/__pycache__/
+__pycache__/
+
+
+# Log files
+*.log
+
+# Jupyter
+*.ipynb
+.ipynb_checkpoints/
+
+# vscode
+.vscode/
+*.code-workspace
+ 
+# Pytest
+pytest.ini
+.pytest_cache
+
+# Backups
+BACKUP/*
